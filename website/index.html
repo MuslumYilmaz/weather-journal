@@ -19,17 +19,37 @@
             <label for="feelings">How are you feeling today?</label>
             <textarea class= "myInput" id="feelings" rows="9" cols="50"></textarea>
           </div>
-            <button id="generate" type = "submit"> Generate </button>
+            <button id="generate" type="submit"> Generate </button>
         </div>
         <div class="card__face card__face--back">
           <div class="card__content">
             <div class="card__header">
               <img src="" alt="">
-              <h2>Name is there</h2>
+              <h2 id="city"></h2>
             </div>
             <div class="card__body">
-              <h3>JS Wizard</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit cum cumque debitis. Consequatur, dolores. Cumque quis voluptatum animi officia id blanditiis ipsum molestiae ullam, neque ratione laborum omnis quod delectus?</p>
+              <div class="flex-display">
+                <h4>Date</h4>
+                <div id ="date"></div> 
+              </div>
+              <div class="flex-display">
+                <h4>Temperature</h4>
+                <div id = "temp"></div>
+              </div>
+              <div class="flex-display">
+                <h4>Description</h4>
+                <div id="description"></div>
+              </div>
+              <div class="flex-display">
+                <h4>Feels like</h4>
+                <div id="feels-like"></div>
+              </div>
+              <div class="flex-display">
+              <div id="content"></div>
+              </div>
+              <div class="flex-display">
+                <button class="go-back">Back</button>
+              </div>
             </div>
           </div>
         </div>
