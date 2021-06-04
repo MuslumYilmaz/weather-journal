@@ -1,8 +1,5 @@
 /* Global Variables */
 
-// Create a new date instance dynamically with JS
-let d = new Date();
-let date = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 let key = apiKey;
 
 const zip = document.getElementById('zip');
@@ -10,6 +7,12 @@ const feelings = document.getElementById('feelings');
 const feels_like = document.getElementById('feels-like');
 const card = document.querySelector('.card__inner');
 const backButton = document.querySelector('.go-back');
+
+const url = "http://api.openweathermap.org/data/2.5/weather?zip=";
+
+// Create a new date instance dynamically with JS
+let d = new Date();
+let date = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 document.getElementById('generate').addEventListener('click', performAction)
 
@@ -29,10 +32,8 @@ function performAction(e){
 
     async function get() {
       try {
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=${key}&units=metric`);
+        const res = await fetch(`${url}${zip.value}${key}`);
         const json = await res.json();
-        console.log('json', json)
-        console.log();
         return json;
       } catch (err) {
         console.error('err', err);
@@ -42,7 +43,6 @@ function performAction(e){
 
     /* Function to POST data */
   const postData = async (url = '', data = {}) => {
-    console.log(data);
     const response = await fetch(url, {
       method: 'POST', 
       credentials: 'same-origin',
@@ -54,7 +54,6 @@ function performAction(e){
 
   try {
         const newData = await response.json();
-        console.log(newData);
       } catch(error) {
       console.log("error", error)
   }
@@ -82,8 +81,6 @@ const updateUI = async () => {
   };
 
   // card-flip
-  console.log(card);
-
   backButton.addEventListener('click', () => {
     card.classList.toggle('is-flipped');
   });
