@@ -9,71 +9,80 @@ const zip = document.getElementById('zip');
 const feelings = document.getElementById('feelings');
 const feels_like = document.getElementById('feels-like');
 
-document.getElementById('generate').addEventListener('click', performAction)
+// document.getElementById('generate').addEventListener('click', performAction)
 
-function performAction(e){
-  get(zip, key)
-    .then(newData => {
-      postData('/create', {
-        temp: newData.main.temp,
-        feelings: feelings.value,
-        date: date
-      });
-    })
-    .then(() => updateUI());
-  }
+// function performAction(e){
+//   get(zip, key)
+//     .then(newData => {
+//       postData('/create', {
+//         temp: newData.main.temp,
+//         feelings: feelings.value,
+//         date: date
+//       });
+//     })
+//     .then(() => updateUI());
+//   }
 
 
 
-    async function get() {
-      try {
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=${key}&units=metric`);
-        const json = await res.json();
-        console.log('json', json)
-        console.log();
-        return json;
-      } catch (err) {
-        console.error('err', err);
-      }
+//     async function get() {
+//       try {
+//         const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=${key}&units=metric`);
+//         const json = await res.json();
+//         console.log('json', json)
+//         console.log();
+//         return json;
+//       } catch (err) {
+//         console.error('err', err);
+//       }
     
-    }
+//     }
 
-    /* Function to POST data */
-  const postData = async (url = '', data = {}) => {
-    console.log(data);
-    const response = await fetch(url, {
-      method: 'POST', 
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data), 
+//     /* Function to POST data */
+//   const postData = async (url = '', data = {}) => {
+//     console.log(data);
+//     const response = await fetch(url, {
+//       method: 'POST', 
+//       credentials: 'same-origin',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(data), 
+//   });
+
+//   try {
+//         const newData = await response.json();
+//         console.log(newData);
+//       } catch(error) {
+//       console.log("error", error)
+//   }
+// };
+
+// const newDate = document.getElementById('date');
+// const newTemp = document.getElementById('temp');
+// const newContent = document.getElementById('content');
+// const city = document.getElementById('city');
+
+// const updateUI = async () => {
+//     const request = await get();
+
+//     try{
+//       city.innerHTML = request.name;
+//       newDate.innerHTML = date;
+//       newTemp.innerHTML = request.main.temp;
+//       description.innerHTML = request.weather[0].description
+//       feels_like.innerHTML = request.main.feels_like;
+//       newContent.innerHTML = `How I'm feeling: ${feelings.value}`;
+//     } catch(error){
+//       console.log("error", error);
+//     }
+//   };
+
+  // card-flip
+  const card = document.querySelector('.card__inner');
+  console.log(card);
+
+  card.addEventListener('click', () => {
+    console.log("clicked");
+    card.classList.toggle('is-flipped');
   });
-
-  try {
-        const newData = await response.json();
-        console.log(newData);
-      } catch(error) {
-      console.log("error", error)
-  }
-};
-
-const newDate = document.getElementById('date');
-const newTemp = document.getElementById('temp');
-const newContent = document.getElementById('content');
-const city = document.getElementById('city');
-
-const updateUI = async () => {
-    const request = await get();
-
-    try{
-      city.innerHTML = request.name;
-      newDate.innerHTML = date;
-      newTemp.innerHTML = request.main.temp;
-      description.innerHTML = request.weather[0].description
-      feels_like.innerHTML = request.main.feels_like;
-      newContent.innerHTML = `How I'm feeling: ${feelings.value}`;
-    } catch(error){
-      console.log("error", error);
-    }
-  };
