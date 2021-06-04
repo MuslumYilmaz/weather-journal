@@ -1,12 +1,14 @@
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {};
 
-require("dotenv").config({path: './config.env'});
-console.log(process.env.key);
-
 // Require Express to run server and routes
 const express = require('express');
 const bodyParser = require ('body-parser') 
+
+// Start up an instance of app
+app = express();
+
+app.use(express.static('website'));
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
@@ -17,11 +19,6 @@ app.use(bodyParser.json());
 const cors = require('cors');
 const { RSA_NO_PADDING } = require('constants');
 app.use(cors());
-
-// Start up an instance of app
-app = express();
-
-app.use(express.static('website'));
 
 // Initialize the main project folder
 //GET route

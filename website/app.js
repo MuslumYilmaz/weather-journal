@@ -3,7 +3,7 @@
 // Create a new date instance dynamically with JS
 let d = new Date();
 let date = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-let key = "";
+let key = apiKey;
 
 const zip = document.getElementById('zip');
 const feelings = document.getElementById('feelings');
@@ -58,19 +58,6 @@ function performAction(e){
   }
 };
 
-    /* Function to GET Project Data */
-const getData = async (url='') => {
-  const request = await fetch(url);
-  try {
-      let allData = await request.json()
-      console.log(allData)
-      return allData;
-  }
-  catch(error) {
-      console.log("error",error);
-  }
-};
-
 const newDate = document.getElementById('date');
 const newTemp = document.getElementById('temp');
 const newContent = document.getElementById('content');
@@ -86,7 +73,6 @@ const updateUI = async () => {
       description.innerHTML = request.weather[0].description
       feels_like.innerHTML = request.main.feels_like;
       newContent.innerHTML = `How I'm feeling: ${feelings.value}`;
-  
     } catch(error){
       console.log("error", error);
     }
