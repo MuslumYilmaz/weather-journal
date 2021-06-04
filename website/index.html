@@ -11,7 +11,15 @@
   <div class="card">
     <div class="card__inner">
         <div class="card__face card__face--front">
-          <h2>Card Example</h2>
+          <div class ="holder zip">
+            <label for="zip">Enter Zipcode here</label>
+            <input type="text" id="zip">
+          </div>
+          <div class ="holder feel">
+            <label for="feelings">How are you feeling today?</label>
+            <textarea class= "myInput" id="feelings" rows="9" cols="50"></textarea>
+          </div>
+            <button id="generate" type = "submit"> Generate </button>
         </div>
         <div class="card__face card__face--back">
           <div class="card__content">
@@ -34,15 +42,8 @@
 
 
 <div class="card">
-    <div class ="holder zip">
-      <label for="zip">Enter Zipcode here</label>
-      <input type="text" id="zip" placeholder="enter zip code here">
-    </div>
-    <div class ="holder feel">
-      <label for="feelings">How are you feeling today?</label>
-      <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-      <button id="generate" type = "submit"> Generate </button>
-    </div>
+    
+
     <div class ="holder entry">
       <div class = "title">Most Recent Entry</div>
      <div id = "entryHolder">

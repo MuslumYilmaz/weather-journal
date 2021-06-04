@@ -49,8 +49,9 @@ body {
 .card__face--front {
     background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .card__face--front h2 {
@@ -84,4 +85,42 @@ body {
     z-index: -1;
     border-radius: 0 0 50% 0;
     background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
+}
+
+.holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    border: none;
+}
+
+#generate {
+    width: 300px;
+    height: 35px;
+    border-radius: 5px;
+    background: #ffbb33;
+    border: none;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+    font-family: montserrat, sans-serif;
+    color: var(--light);
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
 }
