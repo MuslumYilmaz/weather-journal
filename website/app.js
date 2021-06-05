@@ -1,6 +1,6 @@
 /* Global Variables */
 
-let key = apiKey;
+const key = `&appid=${apiKey}&units=metric`;
 
 const zip = document.getElementById('zip');
 const feelings = document.getElementById('feelings');
